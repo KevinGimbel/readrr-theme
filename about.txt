@@ -1,0 +1,5 @@
+Theme name:    readrr Blog
+Description:   Small, full felxible theme.
+Author name:   Kevin Gimbel
+Author site:   http://kevingimbel.de
+License:       http://licence.visualidiot.com

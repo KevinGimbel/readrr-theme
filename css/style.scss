@@ -1,0 +1,283 @@
+/*
+  Hello stranger.
+
+  If you came here you probably found this theme on http://anchorthemes.com/,
+  well in first place: Thank you for downloading it. It makes me happy that 
+  others are interested in my themes.
+
+  Before you start to customize it you should know some things about this SCSS file.
+  First of all: YOU NEED COMPASS
+  You can get Compass for free at <http://compass-style.org> and it will change your
+  life and your way of writting SASS/SCSS. Believe me.
+
+  The comments will take you through the markup of this CSS, you may have
+  noticed that it is written in a high-readable way. 
+  In other words when you find a class inside the PHP files you'll know what
+  it is for.
+
+  Another thing: This Theme is build from "top to bottom", which means you 
+  will find things in the following order:
+
+  1. Imports and SCSS Vars
+  2. Basic Styles (*, body, a,...)
+  3. Header styles
+  4. Content styles
+  5. Footer styles 
+  6. All of them again, wrapped inside a media query
+
+  Have fun developing new things on this one. Or customize it as you wish.
+  This ship is now yours, Captain .
+*/
+
+
+
+/* Importing Fonts and Compass */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
+@import "compass";
+
+
+$accentGreen  :   #64bd1c;    /* Will be the accent color for serval things. */
+$darkGrey     :   #222222;    
+$lightGrey    :   #f1f1f1;    
+
+$link         : $accentGreen;
+$linkHover    : $darkGrey;
+
+/* Change to any font you'd like to use. */
+$baseFont   :   'Open Sans', sans-serif;
+
+
+/*
+# #########################
+#
+#                    BASICS
+#
+# #########################
+*/
+
+
+* { /* Reseting things, you probably know that one. */
+  margin:0;
+  padding:0;
+  position:relative;
+  @include box-sizing(border-box);
+}
+
+a { /* a standard link... */
+  color: $link;
+  text-decoration: none;
+    
+    &:hover { /* ... and a :hover.*/
+      color: $linkHover;
+    }
+}
+
+
+body { /* Basic Body stuff, the image below will be the full-size Background of your site. Use something __BIG__*/
+  width: 100%;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color:#000;
+  background:#333 url(http://blog.readrr.li/themes/default/img/responsive_preview_iphone_2__v1.png);
+  background-size: cover;
+}
+
+.clearfix { /* A minimal clearfix, to clear floated elements */
+  *zoom:1;
+  
+    &:after, &:before {
+      content:'';
+      display:table;
+    }
+
+    &:after {
+      clear:both;
+    }
+}
+
+.wrapper { /* the wrapper, this boy contains out whole page. */
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: auto;
+}
+
+/*
+# #########################
+#
+#                    HEADER
+#
+# #########################
+*/
+
+.site-header { /* the site-header, on desktops it acts as sidebar - on smartphones as header. */
+  width:30%;
+  max-width: 300px;
+  height:auto;
+  padding: 25px;
+  margin: 150px 0;
+  background: rgba(0,0,0,0.4);
+  color:white;
+  @include box-shadow(0 2px 2px rgba(black,.6));
+  float: left;
+}
+
+.site-header--meta { /* the title of your site */
+
+    .logo--font {
+      font-size:2.5em;
+
+        &:hover { /* and the hover state, because its a link */
+          color:white;
+        }
+    }
+
+    .site-description { /* the description inside your header */
+      font-size: 1em;
+    }
+}
+
+.site-header--nav { /* and the "navigation", that contains flat ui like buttons. */
+  display: block;
+  margin: 20px 0;
+    .menu {
+      list-style-type:none;
+
+        .menu-item {
+          display:inline;
+          padding: 7px 14px;
+          margin: 0 5px 0 0;
+          background: $accentGreen;
+          @include border-radius(3px);
+          
+            a {
+              color:#fff;
+            }
+
+            &:hover {
+              background: darken($accentGreen,10%);
+              cursor: pointer;
+            }
+        }
+    }
+}
+
+/*
+# #########################
+#
+#                     POSTS
+#
+# #########################
+*/
+
+.posts-container { /* .posts-container is the main-container element, which means it is also used for pages */
+  width:68%;
+  max-width: 700px;
+  height: 100%;
+  padding: 20px;
+  margin: 0 auto 20px;
+  background:white;
+  @include border-radius(3px);
+  border:1px solid rgba(black,.4);
+  @include box-shadow(0 0 3px rgba(black,.4));
+  float:right;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+}
+
+.post-single--latest-post { /* your newest post, in all its glory */
+  width:100%;
+  height: auto;
+  margin: 20px auto;
+}
+
+.post-single--latest-intro,.post-single--older-intro {
+  font-size:0.8em;
+  text-transform: uppercase;
+  border-bottom: 1px solid $darkGrey;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.post-single--headline { /* this class effects new and old posts, it is used to define the font site for the main headline */
+  font-size:2.5em;
+}
+
+.post-single--content { /* this class effects new and old posts, it is used to define the font site for normal content */
+  font-size: 1em;
+
+}
+
+.post-single--footer { /* this class effects new and old posts, it is used to define the font site for the footer (e.g. "posted 1 year ago" */
+  font-size:0.7em;
+}
+
+.post-single--older-post { /* older posts will be displayed with a headline only, they're just lists actually */
+  width: 100%;
+  height: auto;
+}
+
+.post-single--older-headline { 
+  font-size:1.6em;
+
+}
+
+.site-footer { /* the sites footer, I am not using it. Do what ever you want. */
+position: fixed;
+bottom:0;
+left:0;
+right: 0;
+}
+
+@media all and (max-width: 900px) { /* media queries <3 */
+  
+  .site-header { /* When the page is something below 900px, the site-header will become a site header, on top of everything. */
+    width:100%;
+    max-width: 100%;
+    display: block;
+    height:auto;
+    padding: 25px;
+    margin: 0 auto 20px auto;
+    background: rgba(0,0,0,0.4);
+    color:white;
+    @include box-shadow(0 2px 2px rgba(black,.6));
+    float: none;
+  }
+
+
+  .posts-container { /* the post container will be 90% width. it is centered and has a little space on both sides*/
+  width:90%;
+  max-width: 700px;
+  height: 100%;
+  display: block;
+  padding: 20px;
+  margin: 0 auto 20px;
+  background:white;
+  @include border-radius(3px);
+  border:1px solid rgba(black,.4);
+  @include box-shadow(0 0 3px rgba(black,.4));
+  float:none;
+
+    img { 
+      width: 100%;
+      height: auto;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  }
+
+
+.post-single--headline { /* Making the headline a little bit smaller because it was OVER 9000!v(not actually over 9000 but too large) */
+  font-size:1.5em; 
+}
+
+}
